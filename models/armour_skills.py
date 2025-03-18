@@ -10,7 +10,7 @@ class ArmourSkills(db.Model):
     armour_id = db.Column(db.ForeignKey("armour_pieces.id"), primary_key=True)
     skill_id = db.Column(db.ForeignKey("skills.id"), primary_key=True)
 
-    armour = db.relationship("Armour", back_populates="attached_skills")
+    armour = db.relationship("Armour", back_populates="skills")
     skill = db.relationship("Skill", back_populates="innate_armours")
 
 
