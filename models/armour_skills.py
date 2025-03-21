@@ -7,17 +7,19 @@ from init import db, ma
 class ArmourSkills(db.Model):
     __tablename__ = "armour_skills"
 
-    armour_id = db.Column(db.ForeignKey("armour_pieces.id"), primary_key=True)
-    skill_id = db.Column(db.ForeignKey("skills.id"), primary_key=True)
+    id = db.Column(db.Integer(), primary_key=True)
 
+    armour_id = db.Column(db.Integer(), db.ForeignKey("armour_pieces.id"), primary_key=True, nullable=False)
     armour = db.relationship("Armour", back_populates="skills")
+
+    skill_id = db.Column(db.Integer(), db.ForeignKey("skills.id"), primary_key=True, nullable=False)
     skill = db.relationship("Skill", back_populates="innate_armours")
 
 
 
 class ArmourSkillSchema(ma.Schema):
     class Meta:
-        fields = ("armour_id", "skill_id")
+        fields = ("armour", "skill")
 
 
 armour_skill_schema = ArmourSkillSchema()
