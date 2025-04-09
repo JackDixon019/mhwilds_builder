@@ -48,8 +48,7 @@ def seed_db():
     # create new deco
     deco1 = Deco(
         name = "Attack",
-        base_value = 2,
-        sizes = [2, 3]
+        sizes = [1, 2, 3]
     )
     # add deco to db
     db.session.add(deco1)

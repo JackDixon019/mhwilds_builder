@@ -8,8 +8,8 @@ class Deco(db.Model):
 
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(), nullable=False)
-    base_value = db.Column(db.Integer())
     sizes = db.Column(db.ARRAY(db.Integer()))
+    base_value = db.Column(db.Integer(), db.Computed(sizes[0]))
 
     skills = db.relationship("DecoSkills", back_populates="deco", cascade="all, delete")
 
