@@ -56,8 +56,8 @@ def create_app():
     # Calls objects within function to prevent double-import errors
     db.init_app(app)
     ma.init_app(app)
-    jwt.init_app(app)
-    bcrypt.init_app(app)
+    # jwt.init_app(app)
+    # bcrypt.init_app(app)
 
     for controller in registerable_controllers:
         app.register_blueprint(controller)
